@@ -1,31 +1,32 @@
 
-console.log('the code is working')
+console.log(moment())
 //set time in header
-
-function addTimetoHeader() {
     //get id if TImeEl
-    var timeNowEl = document.getElementById("currentDay");
+var timeNowEl = document.getElementById("currentDay");
+
+//  Get all elements by hour class
+var hourDivs =  document.getElementsByClassName('hour')
+console.log({hourDivs})
     // Set time element to now
-    timeNowEl.textcontent = moment();
+timeNowEl.textContent = moment().format('dddd MMM Mo, YYYY');
+
+// Record the full time in a variable
+var timeNowFull = moment()
+
+// console log the Hour format of the time 
+console.log(timeNowFull.format('hh'))
+
+timeNowHour = Number(timeNowFull.format('hh'))
+
+
+// check if the time is PM and if so add 12 
+if (timeNowFull.format('LT').slice(-2) === 'PM') {
+    timeNowHour  += 12
 }
 
 
-function addColorToTimeSlot() {
-    //get id if TImeEl
-    var timeNowEl = document.getElementById("currentDay");
-    // Set time element to now
-    timeNowEl.textcontent = moment();
-}
 
-
-function init() {
-    //read local storage and assign to time slots
-    addTimetoHeader();
-
-    addColorToTimeSlot();
-
-
-}
+console.log(timeNowHour)
 
 
 // add appropriate class to hour elements (past, furture, present)
