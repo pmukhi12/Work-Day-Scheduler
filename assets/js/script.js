@@ -19,14 +19,16 @@ console.log(timeNowFull.format('hh'))
 timeNowHour = Number(timeNowFull.format('hh'))
 
 
+// Loop through each element 
+for (let index = 0; index < hourDivs.length; index++) {
+    hourDivs[index].style.color='red';
+}
+
+
 // check if the time is PM and if so add 12 
 if (timeNowFull.format('LT').slice(-2) === 'PM') {
     timeNowHour  += 12
 }
-
-
-
-console.log(timeNowHour)
 
 
 // add appropriate class to hour elements (past, furture, present)
